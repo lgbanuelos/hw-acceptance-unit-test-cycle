@@ -36,22 +36,12 @@ The above should be enough for you.
 
 ## UNIX-based OSs (Linux & Mac OS X)
 
-The repository contains the file `Gemfile.unix`. Henceforth, you can run in your terminal the following command:
+I heard that some students are also using `postgresql` as database for Linux. If that is the case, you can safely use the same procedure as for Windows boxes.
+
+If you are using `sqlite3` on this kind of operating systems, then you will need to run the following commands:
 
 ```sh
-cp Gemfile.windows Gemfile
-```
-
-I heard that some students are also using `postgresql` as database for Linux. If that is the case, then you can run the following command:
-
-```sh
-cp config/database.yml.postgres config/database.yml
-rake db:setup
-```
-
-If you are using `sqlite3`, you can use the content of `config/database.yml.original` instead. Run the following command:
-
-```sh
+cp Gemfile.unix Gemfile
 cp config/database.yml.original config/database.yml
 ```
 
