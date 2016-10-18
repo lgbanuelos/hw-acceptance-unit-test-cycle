@@ -49,10 +49,10 @@ cp config/database.yml.postgres config/database.yml
 rake db:setup
 ```
 
-If you are using `sqlite3`, you can use the content of `config/database.yml.sqlite3` instead. Run the following command:
+If you are using `sqlite3`, you can use the content of `config/database.yml.original` instead. Run the following command:
 
 ```sh
-cp config/database.yml.sqlite3 config/database.yml
+cp config/database.yml.original config/database.yml
 ```
 
 ## Completing the setup
