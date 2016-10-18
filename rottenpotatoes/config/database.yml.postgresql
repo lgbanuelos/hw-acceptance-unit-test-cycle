@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: myapp
+  password: password1
+development:
+  <<: *default
+  database: hw5_development
+test: &test
+  <<: *default
+  database: hw5_test
+production:
+  <<: *default
+  database: hw5_production
+
+cucumber:
+  <<: *test
