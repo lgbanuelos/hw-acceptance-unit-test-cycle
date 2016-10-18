@@ -14,11 +14,48 @@ After you complete this assignment, you should be able to:
 
 Introduction and Setup
 ----
-To get the initial RottenPotatoes code please clone this repo to your local machine or C9 workspace, and execute the following command in your top level projects directory, or the root of your C9 workspace:
+To get the initial RottenPotatoes code please clone this repo to your local machine. To that end, execute the following command in your terminal:
 
 ```sh
-$ git clone https://github.com/saasbook/hw-acceptance-unit-test-cycle
+git clone https://github.com/lgbanuelos/hw-acceptance-unit-test-cycle
 ```
+
+For this homework, you will need to submit most of your application code, including the configuration files. Given that the autograder is running on a Linux-based computer, with different versions of the Ruby, we need to jungle a little bit with all the configuration files. In the following subsections, I will describe the setup procedure for Windows and Unix-based OS. Please follow carefully the instructions.
+
+## WINDOWS
+
+The repository contains the file `Gemfile.windows`, which should be safe to use in your Windows box. Note that I am assuming, as for our lecture/practical sessions, you are using `postgresql`. For the same reason, you will find the file `config/database.yml.postgres` with the corresponding configuration. To complete your setup, in a powershell session, run the commands:
+
+```sh
+cp Gemfile.windows Gemfile
+cp config/database.yml.postgres config/database.yml
+rake db:setup
+```
+
+The above should be enough for you.
+
+## UNIX-based OSs (Linux & Mac OS X)
+
+The repository contains the file `Gemfile.unix`. Henceforth, you can run in your terminal the following command:
+
+```sh
+cp Gemfile.windows Gemfile
+```
+
+I heard that some students are also using `postgresql` as database for Linux. If that is the case, then you can run the following command:
+
+```sh
+cp config/database.yml.postgres config/database.yml
+rake db:setup
+```
+
+If you are using `sqlite3`, you can use the content of `config/database.yml.sqlite3` instead. Run the following command:
+
+```sh
+cp config/database.yml.sqlite3 config/database.yml
+```
+
+## Completing the setup
 
 Once you have the clone of the repo:
 
@@ -43,14 +80,14 @@ RSpec.configure do |config|
     c.syntax = [:should, :expect]
   end
   config.expect_with :rspec do |c|
-    c.syntax = [:should, :expect]``
+    c.syntax = [:should, :expect]
   end
 end
 ```
 
 This prevents RSpec from issuing DEPRECATION warnings when it encounters deprecated syntax in `features/step_definitions/web_steps`.
 
-6) You can double-check if everything was installed by running the tasks `rspec` and `cucumber`.  
+6) You can double-check if everything was installed by running the tasks `rspec` and `cucumber`. (You will most likely need to use `bundle exec rspec` and `bundle exec cucumber` instead of the plain commands, because at this time you would have multiple versions of cucumber and rspec installed into your computer).
 
 Since presumably you have no features or specs yet, both tasks should execute correctly reporting that there are zero tests to run. Depending on your version of rspec, it may also display a message stating that it was not able to find any _spec.rb files.
 
@@ -121,13 +158,21 @@ Now when you run `rspec` or `cucumber`, SimpleCov will generate a report in a di
 can intelligently merge the results, so running the tests for Rspec does
 not overwrite the coverage results from SimpleCov and vice versa.
 
-To see the results in Cloud9, open /coverage/index.html. You will see the code, but click the Run button at the top. This will spin up a web server with a link in the console you can click to see your coverage report.
+To see the results, open /coverage/index.html. You will see the code, but click the Run button at the top. This will spin up a web server with a link in the console you can click to see your coverage report.
 
 Improve your test coverage by adding unit tests for untested or undertested code. Specifically, you can write unit tests for the `index`, `update`, `destroy`, and `create` controller methods.
 
 **Submission:**
 
-Here are the instructions for submitting your assignment for grading. Submit a zip file containing the following files and directories of your app:
+
+IMPORTANT: I must remind you that we replaced some configuration files. Therefore, WE NEED TO RESTORE THE FILES TO KEEP THE AUTOGRADER HAPPY (we don't want to pollute the autograder computers with additional versions of gems). Don't forget to copy the current content of your `Gemfile` somewhere, because we will overwrite its content before the submission. Now, run the following commands:
+
+```sh
+cp Gemfile.original Gemfile
+cp config/database.yml.original config/database.yml
+```
+
+The autograder is expecting from us a zip file. Such zip file must contain the following files and directories of your app:
 
 * app/
 * config/
@@ -135,16 +180,17 @@ Here are the instructions for submitting your assignment for grading. Submit a z
 * features/
 * spec/
 * Gemfile
-* Gemfile.lock
 
 If you modified any other files, please include them too. If you are on a *nix based system, navigate to the root directory for this assignment and run
 
 ```sh
 $ cd ..
-$ zip -r hw5.zip rottenpotatoes/app/ rottenpotatoes/config/ rottenpotatoes/db/migrate rottenpotatoes/features/ rottenpotatoes/spec/ rottenpotatoes/Gemfile rottenpotatoes/Gemfile.lock
+$ zip -r hw5.zip rottenpotatoes/app/ rottenpotatoes/config/ rottenpotatoes/db/migrate rottenpotatoes/features/ rottenpotatoes/spec/ rottenpotatoes/Gemfile
 ```
 
 This will create the file hw5.zip, which you will submit.
+
+If you are using Windows, I propose you to install the GNU Zip application (which is compatible with the command above). The GNU Zip application can be downloaded from: http://gnuwin32.sourceforge.net/packages/zip.htm
 
 IMPORTANT NOTE: Your submission must be zipped inside a rottenpotatoes/ folder so that it looks like so:
 
