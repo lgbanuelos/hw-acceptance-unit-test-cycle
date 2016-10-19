@@ -24,11 +24,11 @@ For this homework, you will need to submit most of your application code, includ
 
 ## WINDOWS
 
-The repository contains the file `Gemfile.windows`, which should be safe to use in your Windows box. Note that I am assuming, as for our lecture/practical sessions, you are using `postgresql`. For the same reason, you will find the file `config/database.yml.postgres` with the corresponding configuration. To complete your setup, in a powershell session, run the commands:
+The repository contains the file `Gemfile.windows`, which should be safe to use in your Windows box. Note that I am assuming, as for our lecture/practical sessions, you are using `postgresql`. For the same reason, you will find the file `config/database.yml.postgresql` with the corresponding configuration. To complete your setup, in a powershell session, run the commands:
 
 ```sh
 cp Gemfile.windows Gemfile
-cp config/database.yml.postgres config/database.yml
+cp config/database.yml.postgresql config/database.yml
 rake db:setup
 ```
 
