@@ -186,10 +186,8 @@ IMPORTANT NOTE: Your submission must be zipped inside a rottenpotatoes/ folder s
 
 ```
 $ tree
-.
-└── rottenpotatoes
+rottenpotatoes
     ├── Gemfile
-    ├── Gemfile.lock
     ├── app
     ...
 ```
