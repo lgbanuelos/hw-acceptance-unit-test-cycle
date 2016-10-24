@@ -182,6 +182,8 @@ This will create the file hw5.zip, which you will submit.
 
 If you are using Windows, I propose you to install the GNU Zip application (which is compatible with the command above). The GNU Zip application can be downloaded from: http://gnuwin32.sourceforge.net/packages/zip.htm
 
+THE REASON OF MY PROPOSAL ABOVE IS BECAUSE WINDOWS' ZIP TOOL ADDS THE CONTAINING FOLDER TO THE ZIP FILE. THE AUTOGRADER WOULD COMPLAIN IF YOU SUBMIT A ZIP FILE WITH THE CONTAINING FOLDER!
+
 IMPORTANT NOTE: Your submission must be zipped inside a rottenpotatoes/ folder so that it looks like so:
 
 ```
